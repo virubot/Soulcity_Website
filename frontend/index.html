@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA-RP Live Stream Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 GTA-RP Live Stream Tracker</h1>
+            <p class="subtitle">Real-time YouTube live streams for GTA Roleplay</p>
+        </header>
+
+        <div class="controls">
+            <div class="hashtag-container">
+                <label for="hashtagInput">Hashtags (comma-separated):</label>
+                <input 
+                    type="text" 
+                    id="hashtagInput" 
+                    placeholder="#gtarp, #gta, #roleplay"
+                    class="hashtag-input"
+                    title="Enter hashtags separated by commas (e.g., #gtarp, #gta). Leave empty to use default."
+                >
+            </div>
+
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search streams by title or channel..."
+                    class="search-input"
+                >
+                <button id="clearSearch" class="clear-btn" style="display: none;">✕</button>
+            </div>
+
+            <div class="sort-container">
+                <label for="sortSelect">Sort by:</label>
+                <select id="sortSelect" class="sort-select">
+                    <option value="viewers-desc">Viewers (High to Low)</option>
+                    <option value="viewers-asc">Viewers (Low to High)</option>
+                    <option value="time-desc">Time (Newest)</option>
+                    <option value="time-asc">Time (Oldest)</option>
+                    <option value="channel-asc">Channel (A-Z)</option>
+                    <option value="channel-desc">Channel (Z-A)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="stats">
+            <span id="streamCount" class="stat-item">0 streams</span>
+            <span id="lastUpdate" class="stat-item">Never updated</span>
+            <span id="statusIndicator" class="status-indicator">●</span>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading live streams...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;">
+            <p id="errorMessage"></p>
+            <button id="retryBtn" class="retry-btn">Retry</button>
+        </div>
+
+        <div id="streamsContainer" class="streams-container">
+            <!-- Streams will be inserted here -->
+        </div>
+
+        <div id="noResults" class="no-results" style="display: none;">
+            <p>No live streams found. Try again in a few moments.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
