@@ -1,5 +1,5 @@
 // Configuration
-const API_URL = 'http://localhost:3000/api/live'; // Change this to your backend URL in production
+const API_URL = 'https://soulcity-gta5-rp.onrender.com'; // Change this to your backend URL in production
 const REFRESH_INTERVAL = 10000; // 10 seconds
 
 // State
