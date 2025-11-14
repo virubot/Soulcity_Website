@@ -44,7 +44,7 @@ project/
 │   ├── package.json           # Backend dependencies
 │   ├── env.example            # Environment variables template
 │   └── .env                   # Your actual environment variables (create this)
-├── frontend/
+├── docs/                     # Static frontend (served by GitHub Pages)
 │   ├── index.html             # Main HTML file
 │   ├── script.js              # Frontend JavaScript
 │   ├── styles.css             # Styling
@@ -119,7 +119,7 @@ project/
 
 ### 3. Frontend Setup
 
-1. Navigate to the frontend directory (or open `frontend/index.html` directly)
+1. Navigate to the static site directory (or open `docs/index.html` directly)
 
 2. **Option A: Simple File Server (Recommended for Development)**
    
@@ -127,7 +127,7 @@ project/
    
    ```bash
    # Using Python 3
-   cd frontend
+   cd docs
    python3 -m http.server 8000
    
    # Or using Node.js http-server
@@ -138,12 +138,12 @@ project/
 
 3. **Option B: Update API URL**
    
-   If your backend is running on a different URL, edit `frontend/script.js` and update the `API_URL` constant:
+   If your backend is running on a different URL, edit `docs/script.js` and update the `API_URL` constant:
    ```javascript
    const API_URL = 'http://your-backend-url/api/live';
    ```
 
-4. Open the frontend in your browser and you should see live streams!
+4. Open `docs/index.html` in your browser and you should see live streams!
 
 ## ⚙️ Configuration
 
@@ -158,7 +158,7 @@ project/
 
 ### Frontend Configuration
 
-Edit `frontend/script.js`:
+Edit `docs/script.js`:
 
 - `API_URL`: Backend API endpoint URL
 - `REFRESH_INTERVAL`: Auto-refresh interval in milliseconds (default: 10000 = 10 seconds)
@@ -233,10 +233,10 @@ Edit `frontend/script.js`:
 3. Click **Add new site** > **Import an existing project**
 4. Connect your GitHub repository
 5. Configure:
-   - **Base directory**: `frontend`
+   - **Base directory**: `docs`
    - **Build command**: Leave empty (no build needed)
-   - **Publish directory**: `frontend`
-6. Before deploying, update `frontend/script.js`:
+   - **Publish directory**: `docs`
+6. Before deploying, update `docs/script.js`:
    ```javascript
    const API_URL = 'https://your-backend-url.onrender.com/api/live';
    ```
@@ -250,11 +250,11 @@ Edit `frontend/script.js`:
 3. Click **Add New Project**
 4. Import your GitHub repository
 5. Configure:
-   - **Root Directory**: `frontend`
+   - **Root Directory**: `docs`
    - **Framework Preset**: Other
    - **Build Command**: Leave empty
-   - **Output Directory**: `frontend`
-6. Update `frontend/script.js` with your backend URL
+   - **Output Directory**: `docs`
+6. Update `docs/script.js` with your backend URL
 7. Click **Deploy**
 
 #### Option 3: Simple Static Hosting
@@ -265,7 +265,7 @@ You can also deploy the frontend to any static hosting service:
 - AWS S3 + CloudFront
 - Any web server
 
-Just make sure to update the `API_URL` in `script.js` to point to your deployed backend.
+Just make sure to update the `API_URL` in `docs/script.js` to point to your deployed backend.
 
 ## 🔌 API Endpoints
 
